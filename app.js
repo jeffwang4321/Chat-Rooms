@@ -6,12 +6,10 @@ var express = require('express');
 var app = express();
 
 // Create a Node.js based http server on port 4141
-var server = require('http').createServer(app).listen(process.env.PORT || 8080);
+var server = require('http').createServer(app).listen(process.env.PORT || 4141);
 
-//Get index.html
-app.get('/',function(req, res) {
-	res.sendFile(__dirname + '/index.html');
-});
+//Get html and css from public
+app.use(express.static(__dirname + '/public'));
 
 console.log("Server started.");
 
