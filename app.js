@@ -36,7 +36,7 @@ io.sockets.on('connection', function(socket){
             io.to(this.gameid).emit('addToChat', this.playername + " has joined");
 
         } else {
-            // Otherwise, create new room and join
+            // Otherwise, create new room and join (alert msg on join)
             console.log('create new room');
             this.join(data.gameID);
             io.to(this.gameid).emit('addToChat', this.playername + " has joined the chat");
@@ -49,6 +49,7 @@ io.sockets.on('connection', function(socket){
         io.to(this.gameid).emit('addToChat', this.playername + ": " + msg);
     });
 
+    // Send alert msg when player leaves the chat
     socket.on('disconnect',function(){         
         io.to(this.gameid).emit('addToChat', this.playername + " has left the chat");
     });
