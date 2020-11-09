@@ -5,31 +5,32 @@
     font-family: "Quicksand";
 }
 body {
-    background: #e4ecff;
     display: flex;
     justify-content: space-around;
+    background: #e4ecff;
 }
 
 
 #titlepage, #joinpage{
-    padding: 30px;
     display: none;
+    margin-top: 100px;
+    padding: 30px;
     background:  white;
     border-radius: 15px;
     box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
-    margin: 100px;
+    
     
 }
 
 #chatpage{
-    text-align: center;
     display: none;
-    background:  white;
+    margin-top: 30px;
     width: 85%;
     height: 450px;
+    background:  white;
     border-radius: 15px;
     box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
-    margin: 30px;
+    text-align: center;
 }
 
 #titlecontent, #joincontent{
@@ -42,43 +43,39 @@ body {
 
 
 .chatBox {
-    background: lightgray;
     margin: 3px auto 9px;
     width: 90%;
     height: 80%;
+    background: lightgray;
     overflow: auto;
 }
 
 .chatCell {
-    background: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    padding: 4px 0;
     margin: 2px 0;
+    padding: 4px 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* Buttons */
-.btn{
-    background:#4070F4;
+.btn, button{
     height: 30px;
-    color: white;
-    width: 20%;
-    text-align: center;
+    background:#4070F4;
+    border-radius: 5px;
     outline: none; 
     border: none;
-    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+.btn{
     margin-left: 3px;
+    width: 20%;
 }
 
 button{
     margin-top: 10px;
-    background:#4070F4;
-    height: 30px;
-    color: white;
     width: 130px;
-    text-align: center;
-    outline: none; 
-    border: none;
-    border-radius: 5px;
 }
 
 .btn:hover, button:hover{
@@ -86,9 +83,9 @@ button{
 }
 
 #inputPlayerName, #inputGameID{
-    height: 30px;
-    width: 130px;
     margin-bottom: 5px;
+    width: 130px;
+    height: 30px;
 }
 
 
