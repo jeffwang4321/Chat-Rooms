@@ -2,12 +2,14 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: "Quicksand";
 }
 body {
     background: #e4ecff;
     display: flex;
     justify-content: space-around;
 }
+
 
 #titlepage, #joinpage{
     padding: 30px;
@@ -38,6 +40,7 @@ body {
     padding-top: 4px;
 }
 
+
 .chatBox {
     background: lightgray;
     margin: 3px auto 9px;
@@ -47,12 +50,13 @@ body {
 }
 
 .chatCell {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     width: 100%;
     padding: 4px 0;
     margin: 2px 0;
 }
 
+/* Buttons */
 .btn{
     background:#4070F4;
     height: 30px;
@@ -77,12 +81,31 @@ button{
     border-radius: 5px;
 }
 
+.btn:hover, button:hover{
+    background: gray;
+}
+
 #inputPlayerName, #inputGameID{
     height: 30px;
     width: 130px;
     margin-bottom: 5px;
 }
 
-.btn:hover, button:hover{
-    background: gray;
+
+/* Scrollbar Effects */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: darkgrey;
+} 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
 }
