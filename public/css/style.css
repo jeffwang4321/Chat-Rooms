@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    background: #e4ecff;
+    display: flex;
+    justify-content: space-around;
+}
+
+#titlepage, #joinpage{
+    padding: 30px;
+    display: none;
+    background:  white;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+    margin: 100px;
+    
+}
+
+#chatpage{
+    text-align: center;
+    display: none;
+    background:  white;
+    width: 85%;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+    margin: 30px;
+}
+
+#titlecontent, #joincontent{
+    text-align: center;
+}
+
+#gameidtext{
+    padding-top: 4px;
+}
+
+.chatBox {
+    background: lightgray;
+    margin: 3px auto 9px;
+    width: 90%;
+    height: 80%;
+    overflow: auto;
+}
+
+.chatCell {
+    background: white;
+    width: 100%;
+    padding: 4px 0;
+    margin: 2px 0;
+}
+
+.btn{
+    background:#4070F4;
+    height: 30px;
+    color: white;
+    width: 20%;
+    text-align: center;
+    outline: none; 
+    border: none;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+button{
+    margin-top: 10px;
+    background:#4070F4;
+    height: 30px;
+    color: white;
+    width: 130px;
+    text-align: center;
+    outline: none; 
+    border: none;
+    border-radius: 5px;
+}
+
+#inputPlayerName, #inputGameID{
+    height: 30px;
+    width: 130px;
+    margin-bottom: 5px;
+}
+
+.btn:hover, button:hover{
+    background: gray;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+
+        <!-- Ensure that everything scales appropriately on a mobile device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+        <!-- Font from Google -->
+        <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Title Page -->
+        <div id="titlepage">
+            <div id="titlecontent">
+                <h2>Chat Rooms</h2>
+                <button id="btnjoin" onclick="btnjoin()">Create / Join</button>
+            </div>
+        </div>
+
+
+        <!-- Join Page -->
+        <div id="joinpage">
+            <div id="joincontent">
+                <h2>Name:</h2>
+                <input id="inputPlayerName" type="text" />  
+
+                <h2>Game ID:</h2>
+                <input id="inputGameID" type="text"/>
+                <p></p>
+                <button id="btnstart" onclick="btnstart()">Start</button>
+            </div>  
+        </div>
+
+
+        <!-- Chat Page -->
+        <div id="chatpage">
+            <div id="gameidtext"></div>
+
+            <div id="chattext" class="chatBox"></div>
+
+            <form id="chatform">
+                <input id="chatinput" style="width:69%; height:30px;" autocomplete="off" type="text" /> 
+                <input class="btn" type="submit" value="Send" />
+            </form>
+        </div> 
+
+        <!-- </script>     -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="scripts.js"></script>
+
+    </body>
+</html>
+
+
+
