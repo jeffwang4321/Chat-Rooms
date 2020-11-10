@@ -1,7 +1,7 @@
 {
-  "name": "init",
+  "name": "Chat-Rooms",
   "version": "1.0.0",
-  "description": "chat room",
+  "description": "Chat rooms application using socket.io",
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -11,6 +11,6 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Jeff Wang",
   "license": "ISC"
 }
