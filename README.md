@@ -1,6 +1,7 @@
 # Chat-Rooms
 
-- Created browser based chat rooms using Node.js and socket.io packets to mimic a client server environment. 
+- Browser based chat rooms using Node.js and socket.io packets 
+- Mimic a client server environment using web sockets 
 - Used as a basic template for future multiplayer I/O games 
 - Hosted example: https://chat-rooms-jeffwang.herokuapp.com/
 
