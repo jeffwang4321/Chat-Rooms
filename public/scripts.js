@@ -15,6 +15,12 @@ function btnjoin(){
     titlepage.style.display = 'none';
     joinpage.style.display = 'block';
     chatpage.style.display = 'none';
+    document.getElementById('btncolor').style.background=randomColor() 
+}
+
+//Btn click color (Generate random color)
+function btncolor(){
+    document.getElementById('btncolor').style.background=randomColor() 
 }
 
 //Btn click start (create/ join room & show chatpage)
@@ -24,10 +30,11 @@ function btnstart(){
     joinpage.style.display = 'none';
     chatpage.style.display = 'block';
     
-    // Set gameID & playerName or default to random 4 digit gameID & Anonymous
+    // Set gameID, playerName & playerColor or default to random 4 digit gameID & Anonymous
     var data = {
         gameID : inputGameID.value || (Math.random() * 10000 | 0).toString(),
-        playerName : inputPlayerName.value || 'Anonymous'
+        playerName : inputPlayerName.value || 'Anonymous',
+        playerColor : document.getElementById('btncolor').style.background
     };
     socket.emit('hostCreateNewGame', data);
 }
@@ -77,3 +84,8 @@ document.onkeyup = function(){
     chatinput.focus();  
 }
 
+// Random color function from: //https://stackoverflow.com/questions/10014271/generate-random-color-distinguishable-to-humans
+function randomColor() {
+    var max = 0xffffff;
+    return '#' + Math.round( Math.random() * max ).toString( 16 );
+}

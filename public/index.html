@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <!-- Icons -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'/>
         <!-- Google Font -->
         <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 
@@ -22,10 +24,12 @@
         <div id="joinpage">
             <div id="joincontent">
                 <h2>Name:</h2>
-                <input id="inputPlayerName" type="text" />  
+                <input id="inputPlayerName" autocomplete="off" type="text" />  
 
                 <h2>Game ID:</h2>
-                <input id="inputGameID" type="text"/>
+                <input id="inputGameID" autocomplete="off" type="text"/>
+                <div></div>
+                <button id="btncolor" onclick="btncolor()"><i class='bx bxs-palette' ></i></button>
                 <p></p>
                 <button id="btnstart" onclick="btnstart()">Start</button>
             </div>  
