@@ -48,7 +48,7 @@ body {
     overflow: auto;
 }
 
-.chatCell {
+#chatCell {
     margin: 2px 0;
     padding: 4px 0;
     width: 100%;
