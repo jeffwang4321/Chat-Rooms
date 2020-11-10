@@ -1,4 +1,4 @@
-//207.102.105.88:8080
+//207.102.105.88:4141
 // Import the Express module
 var express = require('express');
 
@@ -12,48 +12,61 @@ var server = require('http').createServer(app).listen(process.env.PORT || 4141);
 app.use(express.static(__dirname + '/public'));
 
 console.log("Server started.");
+var numClients = {};
 
 
 var io = require('socket.io')(server);
 io.sockets.on('connection', function(socket){
     //On connection
-    console.log('New user connected!');
     socket.playername ="";
     socket.gameid="";
+    socket.playercolor=randomColor(); //Random color function below
     socket.emit('showtitle');
+    console.log('New user connected! Color: ', socket.playercolor);
+
 
     // Create room or join room 
     socket.on('hostCreateNewGame',function(data){
-        console.log('hostCreateNewGame' + ' Playername ' + data.playerName + ' attempting to join game: ' + data.gameID );
+        console.log('hostCreateNewGame' + '\n  Playername ' + data.playerName + ' joined game: ' + data.gameID );
         
         // A reference to the player's Socket.IO socket object (set values playername and gameid)
         this.playername = data.playerName;
         this.gameid = data.gameID;
 
-        // If the room exists... Join the room
-        if( io.sockets.adapter.rooms["/" + data.gameID] != undefined ){
-            this.join(data.gameId);
-            io.to(this.gameid).emit('addToChat', this.playername + " has joined");
+        this.join(data.gameID);
+        // console.log(socket.adapter.rooms) //list room .json data
 
+        if (numClients[data.gameID] == undefined) {
+            numClients[data.gameID] = 1;
         } else {
-            // Otherwise, create new room and join (alert msg on join)
-            console.log('create new room');
-            this.join(data.gameID);
-            io.to(this.gameid).emit('addToChat', this.playername + " has joined the chat");
+            numClients[data.gameID]++;
         }
+
+        //Send a join room msg & update numClients
+        io.to(data.gameID).emit('addToChat', "*** " + data.playerName + " has joined ***", this.playercolor);
+        io.to(data.gameID).emit('updatechatinfo', numClients[data.gameID], data.gameID);
     });
-    
+
+
     // Send message back to the game room 
     socket.on('sendMsgToServer',function(msg){
         console.log('Game id: ' + this.gameid + ' ' + this.playername + ": " + msg);
-        io.to(this.gameid).emit('addToChat', this.playername + ": " + msg);
+        io.to(this.gameid).emit('addToChat', this.playername + ": " + msg, this.playercolor);
     });
+
 
     // Send alert msg when player leaves the chat
     socket.on('disconnect',function(){         
-        io.to(this.gameid).emit('addToChat', this.playername + " has left the chat");
+        io.to(this.gameid).emit('addToChat', this.playername + " has left the chat", this.playercolor);
+        numClients[this.gameid]--;
+        //Update numClients
+        io.to(this.gameid).emit('updatechatinfo', numClients[this.gameid], this.gameid);
     });
         
 });
 
-
+// Random color function from: //https://stackoverflow.com/questions/10014271/generate-random-color-distinguishable-to-humans
+function randomColor() {
+    var max = 0xffffff;
+    return '#' + Math.round( Math.random() * max ).toString( 16 );
+}
