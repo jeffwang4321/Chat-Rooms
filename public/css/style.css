@@ -14,7 +14,7 @@ body {
 #titlepage, #joinpage{
     display: none;
     margin: 100px;
-    padding: 30px;
+    padding: 27px;
     background:  white;
     border-radius: 15px;
     box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
@@ -72,12 +72,18 @@ body {
 }
 
 button{
-    margin-top: 10px;
+    margin: 5px;
     width: 130px;
 }
 
 .btn:hover, button:hover{
     background: gray;
+    cursor: pointer;
+}
+
+#btncolor{
+    font-size: 25px;
+    padding: 1px;
 }
 
 #inputPlayerName, #inputGameID{
