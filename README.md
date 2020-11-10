@@ -17,7 +17,7 @@ Point your browser to http://localhost:4141
 ## Features
 
 - Users can join different chat room by each entering a unique player name and room id
-- Users are assigned a unique identification color 
+- Users are assigned a unique identification color.
 - Users can send chat messages to the chat room.
 - A notification is sent when a user joins or leaves the chatroom.
-- A notification is sent when a user is typing. 
+- Chatroom tracks the number of connected user 
