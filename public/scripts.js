@@ -30,18 +30,30 @@ function btnstart(){
         playerName : inputPlayerName.value || 'Anonymous'
     };
     socket.emit('hostCreateNewGame', data);
-
-    //Show Chat Room ID at the top of chat page
-    gameidtext.innerHTML += '<h2> Game ID: ' + data.gameID + '</h2>';
 }
 
 
-//On server call - Add a chat cell to our chat list view, and scroll to the bottom
-socket.on('addToChat',function(data){
+//Add a chat cell to our chat list view (Distinct client colors included!), and scroll to the bottom 
+socket.on('addToChat',function(msg, playercolor){
     console.log('got a chat message');
-    chattext.innerHTML += '<div class="chatCell">' + data + '</div>';
+
+    var messageNode = document.createTextNode(msg);
+    var messageElement = document.createElement('div');
+    messageElement.setAttribute("id", "chatCell");
+    messageElement.style.color = playercolor;
+
+    messageElement.appendChild(messageNode);
+    document.getElementById('chattext').appendChild(messageElement);
+
     chattext.scrollTop = chattext.scrollHeight;   
 });
+
+
+//Update the Game ID & numUser info on top of chat list
+socket.on('updatechatinfo',function(numUsers, gameid){
+    gameidtext.innerHTML = '<h2> Game ID: ' +gameid + '&#160; &#160;Users: ' +numUsers  + '/10 </h2>';
+});
+
 
 //Btn click send (Calls server to send chat, server checks rooms)
 chatform.onsubmit = function(e){
@@ -53,6 +65,7 @@ chatform.onsubmit = function(e){
     chatinput.value = "";
 }
 
+
 //Optional for chat page (focus chat input box)
 //Run on page load, alway focus chat input
 document.addEventListener('DOMContentLoaded', function() {
@@ -60,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     
 //Run on key press, alway focus chat input
-document.onkeyup = function(event){
+document.onkeyup = function(){
     chatinput.focus();  
 }
+
