@@ -13,18 +13,16 @@ body {
 
 #titlepage, #joinpage{
     display: none;
-    margin-top: 100px;
+    margin: 100px;
     padding: 30px;
     background:  white;
     border-radius: 15px;
     box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
-    
-    
 }
 
 #chatpage{
     display: none;
-    margin-top: 30px;
+    margin: 30px;
     width: 85%;
     height: 450px;
     background:  white;
