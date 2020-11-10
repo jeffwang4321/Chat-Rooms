@@ -20,9 +20,9 @@ io.sockets.on('connection', function(socket){
     //On connection
     socket.playername ="";
     socket.gameid="";
-    socket.playercolor=randomColor(); //Random color function below
+    socket.playercolor=""; //Random color function below
     socket.emit('showtitle');
-    console.log('New user connected! Color: ', socket.playercolor);
+    console.log('New connection!');
 
 
     // Create room or join room 
@@ -32,6 +32,7 @@ io.sockets.on('connection', function(socket){
         // A reference to the player's Socket.IO socket object (set values playername and gameid)
         this.playername = data.playerName;
         this.gameid = data.gameID;
+        this.playercolor = data.playerColor
 
         this.join(data.gameID);
         // console.log(socket.adapter.rooms) //list room .json data
@@ -65,8 +66,3 @@ io.sockets.on('connection', function(socket){
         
 });
 
-// Random color function from: //https://stackoverflow.com/questions/10014271/generate-random-color-distinguishable-to-humans
-function randomColor() {
-    var max = 0xffffff;
-    return '#' + Math.round( Math.random() * max ).toString( 16 );
-}
